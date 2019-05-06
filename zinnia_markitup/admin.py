@@ -2,7 +2,11 @@
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.staticfiles.storage import staticfiles_storage
-from django.core.urlresolvers import reverse
+import django
+if django.VERSION[0] < 2:
+    from django.core.urlresolvers import reverse
+else:
+    from django.urls import reverse
 from django.forms import Media
 from django.template.response import TemplateResponse
 from django.views.decorators.csrf import csrf_exempt
